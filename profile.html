@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paytm — Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <header class="page-header">
+    <a href="index.html" class="back-btn">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </a>
+    <span class="page-header-title">Profile &amp; Settings</span>
+  </header>
+
+  <!-- Profile card -->
+  <div style="background:var(--white);padding:28px 20px 22px;text-align:center;border-bottom:1px solid var(--ink-100);" class="fu">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--ink-100);">
+      <div style="flex:1;"><div style="font-size:15px;font-weight:600;color:var(--ink-900);">Rahul Khatri</div><div style="font-size:12px;color:var(--ink-300);margin-top:2px;">HDFC Bank &middot; AC &middot;&middot;&middot;8821</div></div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:170px;height:170px;margin:0 auto;border:3px solid var(--blue);border-radius:14px;padding:12px;display:flex;align-items:center;justify-content:center;">
+        <svg width="138" height="138" viewBox="0 0 140 140" fill="none">
+          <rect x="0" y="0" width="42" height="42" rx="4" fill="#0D1117"/><rect x="8" y="8" width="26" height="26" fill="white"/><rect x="13" y="13" width="16" height="16" fill="#0D1117"/>
+          <rect x="98" y="0" width="42" height="42" rx="4" fill="#0D1117"/><rect x="106" y="8" width="26" height="26" fill="white"/><rect x="111" y="13" width="16" height="16" fill="#0D1117"/>
+          <rect x="0" y="98" width="42" height="42" rx="4" fill="#0D1117"/><rect x="8" y="106" width="26" height="26" fill="white"/><rect x="13" y="111" width="16" height="16" fill="#0D1117"/>
+          <rect x="48" y="4" width="6" height="6" rx="1" fill="#0D1117"/><rect x="58" y="4" width="6" height="6" rx="1" fill="#0D1117"/><rect x="70" y="10" width="6" height="6" rx="1" fill="#0D1117"/><rect x="80" y="4" width="6" height="6" rx="1" fill="#0D1117"/>
+          <rect x="4" y="48" width="6" height="6" rx="1" fill="#0D1117"/><rect x="14" y="58" width="6" height="6" rx="1" fill="#0D1117"/><rect x="4" y="68" width="6" height="6" rx="1" fill="#0D1117"/><rect x="24" y="58" width="6" height="6" rx="1" fill="#0D1117"/>
+          <rect x="52" y="52" width="12" height="12" rx="2" fill="#00BAF2"/>
+          <rect x="68" y="48" width="6" height="6" rx="1" fill="#0D1117"/><rect x="80" y="56" width="6" height="6" rx="1" fill="#0D1117"/><rect x="94" y="48" width="6" height="6" rx="1" fill="#0D1117"/><rect x="108" y="52" width="6" height="6" rx="1" fill="#0D1117"/>
+          <rect x="48" y="68" width="6" height="6" rx="1" fill="#0D1117"/><rect x="60" y="78" width="6" height="6" rx="1" fill="#0D1117"/><rect x="74" y="68" width="6" height="6" rx="1" fill="#0D1117"/><rect x="88" y="76" width="6" height="6" rx="1" fill="#0D1117"/>
+          <rect x="48" y="100" width="6" height="6" rx="1" fill="#0D1117"/><rect x="62" y="110" width="6" height="6" rx="1" fill="#0D1117"/><rect x="74" y="100" width="6" height="6" rx="1" fill="#0D1117"/><rect x="86" y="114" width="6" height="6" rx="1" fill="#0D1117"/><rect x="100" y="100" width="6" height="6" rx="1" fill="#0D1117"/><rect x="112" y="110" width="6" height="6" rx="1" fill="#0D1117"/>
+        </svg>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:var(--ink-050);border-radius:var(--radius-sm);padding:12px 14px;margin-top:16px;">
+      <div><div style="font-size:10px;color:var(--ink-300);font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-bottom:3px;">UPI ID</div><div style="font-size:14px;font-weight:600;color:var(--ink-900);">rahul.khatri@okhdfc</div></div>
+      <button id="upiCopyBtn" onclick="doCopyUpi()" style="font-size:13px;font-weight:600;color:var(--blue);background:none;border:none;cursor:pointer;">Copy</button>
+    </div>
+    <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;">
+      <span class="badge badge-blue">KYC Verified</span>
+      <span class="badge badge-green">UPI Active</span>
+    </div>
+  </div>
+
+  <!-- Account settings group -->
+  <div class="section mt-20 fu fu1">
+    <div class="section-header"><span class="section-title">Account</span></div>
+    <div class="card">
+
+      <div class="settings-row">
+        <div class="settings-ico" style="background:var(--blue-light);color:var(--blue);">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="settings-text">
+          <div class="settings-name">Edit Profile</div>
+          <div class="settings-desc">Name, photo, date of birth</div>
+        </div>
+        <div class="settings-chevron"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-ico" style="background:var(--green-light);color:var(--green);">
+          <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        </div>
+        <div class="settings-text">
+          <div class="settings-name">Linked Bank Accounts</div>
+          <div class="settings-desc">Bank of India · AC ···4938</div>
+        </div>
+        <div class="settings-chevron"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-ico" style="background:var(--amber-light);color:var(--amber);">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14"/><path d="M4.93 4.93a10 10 0 000 14.14"/><path d="M15.54 8.46a5 5 0 010 7.07"/><path d="M8.46 8.46a5 5 0 000 7.07"/></svg>
+        </div>
+        <div class="settings-text">
+          <div class="settings-name">Manage UPI IDs</div>
+          <div class="settings-desc">9510466429@ptyes (active)</div>
+        </div>
+        <div class="settings-chevron"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-ico" style="background:#FCE7F3;color:#BE185D;">
+          <svg viewBox="0 0 24 24"><path d="M21 10H3"/><path d="M21 6H3"/><path d="M21 14H3"/><path d="M21 18H3"/></svg>
+        </div>
+        <div class="settings-text">
+          <div class="settings-name">Saved Addresses</div>
+          <div class="settings-desc">For deliveries and services</div>
+        </div>
+        <div class="settings-chevron"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Security group -->
+  <div class="section mt-20 fu fu2">
+    <div class="section-header"><span class="section-title">Security &amp; Privacy</span></div>
+    <div class="card">
+
+      <div class="settings-row">
+        <div class="settings-ico" style="background:var(--blue-light);color:var(--blue);">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="settings-text">
+          <div class="settings-name">Security &amp; Privacy</div>
+          <div class="settings-desc">PIN, FaceID, logged-in devices</div>
+        </div>
+        <div class="settings-chevron"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-ico" style="background:var(--green-light);color:var(--green);">
+          <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+        </div>
+        <div class="settings-text">
+          <div class="settings-name">Notifications</div>
+          <div class="settings-desc">Payment alerts, offers, updates</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <!-- Toggle -->
+          <label style="position:relative;display:inline-block;width:40px;height:22px;cursor:pointer;">
+            <input type="checkbox" checked style="opacity:0;width:0;height:0;" onchange="this.parentElement.querySelector('.toggle-slider').style.background = this.checked ? 'var(--blue)' : 'var(--ink-100)'">
+            <span class="toggle-slider" style="position:absolute;cursor:pointer;inset:0;background:var(--blue);border-radius:22px;transition:.2s;">
+              <span style="position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.2s;transform:translateX(18px);"></span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- App settings group -->
+  <div class="section mt-20 fu fu3">
+    <div class="section-header"><span class="section-title">App Settings</span></div>
+    <div class="card">
+
+      <div class="settings-row">
+        <div class="settings-ico" style="background:var(--ink-050);color:var(--ink-500);">
+          <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+        </div>
+        <div class="settings-text">
+          <div class="settings-name">Language</div>
+          <div class="settings-desc">English</div>
+        </div>
+        <div class="settings-chevron"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-ico" style="background:var(--ink-050);color:var(--ink-500);">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14M15.54 8.46a5 5 0 010 7.07M8.46 8.46a5 5 0 000 7.07"/></svg>
+        </div>
+        <div class="settings-text">
+          <div class="settings-name">Active Services</div>
+          <div class="settings-desc">View all linked services</div>
+        </div>
+        <div class="settings-chevron"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-ico" style="background:var(--ink-050);color:var(--ink-500);">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div class="settings-text">
+          <div class="settings-name">Help &amp; Support</div>
+          <div class="settings-desc">FAQs, disputes, contact us</div>
+        </div>
+        <div class="settings-chevron"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Logout (separated) -->
+  <div class="section mt-20 fu fu4 pb-20">
+    <div class="card">
+      <div class="settings-row" onclick="confirmLogout()" style="color:var(--red);">
+        <div class="settings-ico" style="background:var(--red-light);color:var(--red);">
+          <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </div>
+        <div class="settings-text">
+          <div class="settings-name" style="color:var(--red);">Logout</div>
+          <div class="settings-desc">Log out of this device</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:0 20px 8px;text-align:center;">
+    <span style="font-size:11px;color:var(--ink-300);">Paytm v10.4.2 &nbsp;|&nbsp; Powered by One97 Communications</span>
+  </div>
+
+  <div class="spacer"></div>
+</div>
+
+<script src="script.js"></script>
+<script>
+renderNav('profile');
+
+function confirmLogout() {
+  if (confirm('Log out from Paytm?')) {
+    window.location = 'index.html';
+  }
+}
+</script>
+</body>
+</html>

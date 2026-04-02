@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paytm — Send Money</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <header class="page-header">
+    <a href="index.html" class="back-btn">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </a>
+    <span class="page-header-title">Send Money</span>
+  </header>
+
+  <!-- Search -->
+  <div class="section" style="padding-top:16px;">
+    <div class="input-wrap">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+      <input class="input" type="text" placeholder="Name, UPI ID or mobile number" id="searchInput" oninput="filterContacts(this.value)">
+    </div>
+  </div>
+
+  <!-- Recent contacts -->
+  <div class="section mt-20 fu">
+    <div class="section-header">
+      <span class="section-title">Recent</span>
+    </div>
+    <div class="scroll-x contacts-scroll">
+      <div class="avatar-item" onclick="selectContact('K Deepakkumar','9898104191@kotak')">
+        <div class="av av-48 c1">KD</div>
+        <div class="avatar-name">Deepakkumar</div>
+      </div>
+      <div class="avatar-item" onclick="selectContact('Mrs Pooja Tekchandani','75673335118@ibl')">
+        <div class="av av-48 c2">MT</div>
+        <div class="avatar-name">Mrs Pooja</div>
+      </div>
+      <div class="avatar-item" onclick="selectContact('Anita Ashokkumar','anita.h@upi')">
+        <div class="av av-48 c3">AH</div>
+        <div class="avatar-name">Anita</div>
+      </div>
+      <div class="avatar-item" onclick="selectContact('N Maheshkumar','nmahesh@okaxis')">
+        <div class="av av-48 c4">NM</div>
+        <div class="avatar-name">N Mahesh.</div>
+      </div>
+      <div class="avatar-item" onclick="selectContact('Sneh Patel','sneh.p@okicici')">
+        <div class="av av-48 c5">SP</div>
+        <div class="avatar-name">Sneh Patel</div>
+      </div>
+      <div class="avatar-item" onclick="selectContact('Dharmik Shah','dharmik.s@ptyes')">
+        <div class="av av-48 c6">DS</div>
+        <div class="avatar-name">Dharmik</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contacts list -->
+  <div class="section mt-20 fu fu1">
+    <div class="section-header">
+      <span class="section-title">All Contacts</span>
+    </div>
+    <div class="card" id="contactList">
+
+      <div class="contact" data-name="K Deepakkumar" onclick="selectContact('K Deepakkumar','9898104191@kotak')">
+        <div class="av av-40 c1">KD</div>
+        <div class="contact-info">
+          <div class="contact-name">K Deepakkumar</div>
+          <div class="contact-sub">+91 98981 04191</div>
+        </div>
+        <div style="font-size:12px;color:var(--ink-300);">Last: &#8377;6,500</div>
+      </div>
+
+      <div class="contact" data-name="Mrs Pooja Nareshkumar Tekchandani" onclick="selectContact('Mrs Pooja N. Tekchandani','75673335118@ibl')">
+        <div class="av av-40 c2">MT</div>
+        <div class="contact-info">
+          <div class="contact-name">Mrs Pooja N. Tekchandani</div>
+          <div class="contact-sub">75673335118@ibl</div>
+        </div>
+        <div style="font-size:12px;color:var(--ink-300);">Last: &#8377;900</div>
+      </div>
+
+      <div class="contact" data-name="Anita Ashokkumar" onclick="selectContact('Anita Ashokkumar','anita.h@upi')">
+        <div class="av av-40 c3">AH</div>
+        <div class="contact-info">
+          <div class="contact-name">Anita Ashokkumar</div>
+          <div class="contact-sub">anita.h@upi</div>
+        </div>
+        <div style="font-size:12px;color:var(--ink-300);">—</div>
+      </div>
+
+      <div class="contact" data-name="N Maheshkumar" onclick="selectContact('N Maheshkumar','nmahesh@okaxis')">
+        <div class="av av-40 c4">NM</div>
+        <div class="contact-info">
+          <div class="contact-name">N Maheshkumar</div>
+          <div class="contact-sub">nmahesh@okaxis</div>
+        </div>
+        <div style="font-size:12px;color:var(--ink-300);">—</div>
+      </div>
+
+      <div class="contact" data-name="Sneh Patel" onclick="selectContact('Sneh Patel','sneh.p@okicici')">
+        <div class="av av-40 c5">SP</div>
+        <div class="contact-info">
+          <div class="contact-name">Sneh Patel</div>
+          <div class="contact-sub">+91 87659 12340</div>
+        </div>
+        <div style="font-size:12px;color:var(--ink-300);">—</div>
+      </div>
+
+      <div class="contact" data-name="Riya Society" onclick="selectContact('Riya Society','riyasociety@icici')">
+        <div class="av av-40 c6" style="font-size:12px;">RS</div>
+        <div class="contact-info">
+          <div class="contact-name">Riya Society</div>
+          <div class="contact-sub">riyasociety@icici</div>
+        </div>
+        <div style="font-size:12px;color:var(--ink-300);">Last: &#8377;4,600</div>
+      </div>
+
+      <div class="contact" data-name="Harshita" onclick="selectContact('Harshita','harshita2@ptyes')">
+        <div class="av av-40 c1" style="font-size:13px;">H</div>
+        <div class="contact-info">
+          <div class="contact-name">Harshita 2</div>
+          <div class="contact-sub">harshita2@ptyes</div>
+        </div>
+        <div style="font-size:12px;color:var(--ink-300);">—</div>
+      </div>
+
+      <div class="contact" data-name="Dharmik Shah" onclick="selectContact('Dharmik Shah','dharmik.s@ptyes')">
+        <div class="av av-40 c6">DS</div>
+        <div class="contact-info">
+          <div class="contact-name">Dharmik Shah</div>
+          <div class="contact-sub">+91 93729 44510</div>
+        </div>
+        <div style="font-size:12px;color:var(--ink-300);">—</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+</div>
+
+<!-- Payment sheet (slide-up modal) -->
+<div id="paySheet" style="display:none;position:fixed;inset:0;z-index:500;">
+  <div id="payBackdrop" style="position:absolute;inset:0;background:rgba(0,0,0,.45);" onclick="closeSheet()"></div>
+  <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:var(--white);border-radius:20px 20px 0 0;padding:0 0 28px;">
+    <!-- Handle -->
+    <div style="display:flex;justify-content:center;padding:12px 0 4px;">
+      <div style="width:36px;height:4px;background:var(--ink-100);border-radius:2px;"></div>
+    </div>
+
+    <div style="padding:16px 20px 0;">
+      <!-- Recipient -->
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 0 16px;border-bottom:1px solid var(--ink-100);">
+        <div class="av av-48 c1" id="sheetAvatar">KD</div>
+        <div>
+          <div style="font-size:16px;font-weight:600;color:var(--ink-900);" id="sheetName">K Deepakkumar</div>
+          <div style="font-size:12px;color:var(--ink-300);margin-top:2px;" id="sheetUpi">9898104191@kotak</div>
+        </div>
+      </div>
+
+      <!-- Amount input -->
+      <div style="padding:20px 0 16px;border-bottom:1px solid var(--ink-100);">
+        <div style="font-size:12px;color:var(--ink-300);margin-bottom:10px;font-weight:500;letter-spacing:.4px;text-transform:uppercase;">Enter Amount</div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:28px;font-weight:600;color:var(--ink-900);">&#8377;</span>
+          <input type="number" inputmode="decimal" id="amountInput"
+            style="flex:1;font-size:32px;font-weight:600;color:var(--ink-900);border:none;outline:none;font-family:var(--font);background:transparent;"
+            placeholder="0">
+        </div>
+      </div>
+
+      <!-- Note -->
+      <div style="padding:14px 0 0;">
+        <div class="input-wrap">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <input class="input" type="text" placeholder="Add a note (optional)" id="noteInput">
+        </div>
+      </div>
+
+      <!-- Pay CTA -->
+      <button class="btn btn-primary btn-full mt-16" style="height:52px;font-size:16px;" onclick="proceedPay()">
+        Pay Now
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+renderNav('home');
+
+function filterContacts(val) {
+  const items = document.querySelectorAll('#contactList .contact');
+  const q = val.toLowerCase();
+  items.forEach(el => {
+    el.style.display = el.dataset.name.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+
+function selectContact(name, upi) {
+  const initials = name.split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase();
+  document.getElementById('sheetName').textContent = name;
+  document.getElementById('sheetUpi').textContent = upi;
+  document.getElementById('sheetAvatar').textContent = initials;
+  document.getElementById('paySheet').style.display = 'block';
+  document.getElementById('amountInput').focus();
+  // store for success page
+  sessionStorage.setItem('payee', name);
+  sessionStorage.setItem('upi', upi);
+}
+
+function closeSheet() {
+  document.getElementById('paySheet').style.display = 'none';
+}
+
+function proceedPay() {
+  const amt = document.getElementById('amountInput').value;
+  if (!amt || isNaN(amt) || +amt <= 0) {
+    document.getElementById('amountInput').style.borderBottom = '2px solid var(--red)';
+    return;
+  }
+  sessionStorage.setItem('payAmount', amt);
+  sessionStorage.setItem('payNote', document.getElementById('noteInput').value || 'Money Transfer');
+  window.location = 'payment-success.html';
+}
+</script>
+</body>
+</html>

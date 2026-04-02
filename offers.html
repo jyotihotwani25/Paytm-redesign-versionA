@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paytm — Offers &amp; Cashback</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <header class="page-header">
+    <a href="index.html" class="back-btn">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </a>
+    <span class="page-header-title">Offers &amp; Cashback</span>
+    <div class="page-header-right">
+      <button class="icon-btn">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Rewards summary -->
+  <div class="section" style="padding-top:16px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+
+      <div style="background:var(--white);border:1px solid var(--ink-100);border-radius:var(--radius-md);padding:14px 12px;text-align:center;">
+        <div style="font-size:22px;font-weight:600;color:var(--ink-900);letter-spacing:-.5px;">&#8377;112</div>
+        <div style="font-size:11px;color:var(--ink-300);margin-top:3px;">Cashback</div>
+      </div>
+
+      <div style="background:var(--white);border:1px solid var(--ink-100);border-radius:var(--radius-md);padding:14px 12px;text-align:center;">
+        <div style="font-size:22px;font-weight:600;color:var(--amber);letter-spacing:-.5px;">568</div>
+        <div style="font-size:11px;color:var(--ink-300);margin-top:3px;">Gold Coins</div>
+      </div>
+
+      <div style="background:var(--white);border:1px solid var(--ink-100);border-radius:var(--radius-md);padding:14px 12px;text-align:center;">
+        <div style="font-size:22px;font-weight:600;color:var(--blue);letter-spacing:-.5px;">54</div>
+        <div style="font-size:11px;color:var(--ink-300);margin-top:3px;">Vouchers</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Filter tabs -->
+  <div class="section mt-16">
+    <div class="scroll-x" style="gap:8px;padding:0 20px;margin:0 -20px;">
+      <button class="btn" style="padding:8px 16px;border-radius:99px;font-size:13px;background:var(--blue);color:#fff;flex:0 0 auto;" id="tab-all" onclick="switchOfferTab('all',this)">All</button>
+      <button class="btn btn-ghost" style="padding:8px 16px;border-radius:99px;font-size:13px;flex:0 0 auto;" id="tab-cashback" onclick="switchOfferTab('cashback',this)">Cashback</button>
+      <button class="btn btn-ghost" style="padding:8px 16px;border-radius:99px;font-size:13px;flex:0 0 auto;" id="tab-vouchers" onclick="switchOfferTab('vouchers',this)">Vouchers</button>
+      <button class="btn btn-ghost" style="padding:8px 16px;border-radius:99px;font-size:13px;flex:0 0 auto;" id="tab-recharge" onclick="switchOfferTab('recharge',this)">Recharge</button>
+    </div>
+  </div>
+
+  <!-- Active cashback offers -->
+  <div class="section mt-20 fu" id="section-cashback" data-cat="cashback">
+    <div class="section-header">
+      <span class="section-title">Active Cashback</span>
+      <a href="#" class="section-link">See all</a>
+    </div>
+    <div class="card">
+
+      <div class="offer-row">
+        <div class="offer-icon-wrap" style="background:var(--blue-light);color:var(--blue);">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92V19a2 2 0 01-2.18 2A19.79 19.79 0 012 4.18 2 2 0 014 2h2.09A2 2 0 018 3.71c.327.96.694 1.9 1.1 2.81a2 2 0 01-.45 2.11L7.91 9.37A16 16 0 0014.63 16l.75-.75a2 2 0 012.11-.45c.91.406 1.85.773 2.81 1.1A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="offer-body">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px;">
+            <div class="offer-title">Mobile Recharge Cashback</div>
+            <span class="badge badge-green">10% off</span>
+          </div>
+          <div class="offer-desc">Get up to &#8377;50 cashback on your next Jio or Airtel recharge. Min. recharge &#8377;199.</div>
+          <div class="offer-claim">
+            <button class="btn btn-outline" style="padding:7px 16px;font-size:12px;" onclick="window.location='index.html'">Recharge Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="offer-row">
+        <div class="offer-icon-wrap" style="background:var(--green-light);color:var(--green);">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="offer-body">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px;">
+            <div class="offer-title">Electricity Bill Cashback</div>
+            <span class="badge badge-blue">&#8377;30 off</span>
+          </div>
+          <div class="offer-desc">Flat &#8377;30 cashback on electricity bill payment via Paytm UPI. Valid till 31 Apr.</div>
+          <div class="offer-claim">
+            <button class="btn btn-outline" style="padding:7px 16px;font-size:12px;">Pay Bill</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="offer-row">
+        <div class="offer-icon-wrap" style="background:var(--amber-light);color:var(--amber);">
+          <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        </div>
+        <div class="offer-body">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px;">
+            <div class="offer-title">UPI Payment Cashback</div>
+            <span class="badge badge-amber">&#8377;20 off</span>
+          </div>
+          <div class="offer-desc">Get &#8377;20 cashback on any UPI payment above &#8377;500. Valid for 3 transactions.</div>
+          <div class="offer-claim">
+            <button class="btn btn-outline" style="padding:7px 16px;font-size:12px;" onclick="window.location='pay.html'">Pay Now</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Gift vouchers -->
+  <div class="section mt-20 fu fu1" id="section-vouchers" data-cat="vouchers">
+    <div class="section-header">
+      <span class="section-title">Gift Vouchers</span>
+      <a href="#" class="section-link">See all</a>
+    </div>
+    <div class="card">
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+
+        <div style="padding:14px 16px;border-right:1px solid var(--ink-100);border-bottom:1px solid var(--ink-100);cursor:pointer;">
+          <div style="width:40px;height:40px;border-radius:8px;background:#000;display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div style="font-size:13px;font-weight:600;color:var(--ink-900);">Apple</div>
+          <div style="font-size:12px;color:var(--green);font-weight:600;margin-top:2px;">3% off</div>
+        </div>
+
+        <div style="padding:14px 16px;border-bottom:1px solid var(--ink-100);cursor:pointer;">
+          <div style="width:40px;height:40px;border-radius:8px;background:#F9A825;display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          </div>
+          <div style="font-size:13px;font-weight:600;color:var(--ink-900);">Flipkart</div>
+          <div style="font-size:12px;color:var(--green);font-weight:600;margin-top:2px;">1% off</div>
+        </div>
+
+        <div style="padding:14px 16px;border-right:1px solid var(--ink-100);cursor:pointer;">
+          <div style="width:40px;height:40px;border-radius:8px;background:#E53935;display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div style="font-size:13px;font-weight:600;color:var(--ink-900);">PVR Cinemas</div>
+          <div style="font-size:12px;color:var(--green);font-weight:600;margin-top:2px;">20% off</div>
+        </div>
+
+        <div style="padding:14px 16px;cursor:pointer;">
+          <div style="width:40px;height:40px;border-radius:8px;background:#003399;display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div style="font-size:13px;font-weight:600;color:var(--ink-900);">Domino's</div>
+          <div style="font-size:12px;color:var(--green);font-weight:600;margin-top:2px;">15% off</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Recharge deals -->
+  <div class="section mt-20 fu fu2" id="section-recharge" data-cat="recharge">
+    <div class="section-header">
+      <span class="section-title">Recharge &amp; Bills</span>
+    </div>
+    <div class="card">
+
+      <div class="offer-row">
+        <div class="offer-icon-wrap" style="background:#E3F2FD;color:#1565C0;">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92V19a2 2 0 01-2.18 2A19.79 19.79 0 012 4.18 2 2 0 014 2h2.09A2 2 0 018 3.71c.327.96.694 1.9 1.1 2.81a2 2 0 01-.45 2.11L7.91 9.37A16 16 0 0014.63 16l.75-.75a2 2 0 012.11-.45c.91.406 1.85.773 2.81 1.1A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="offer-body">
+          <div class="offer-title">Jio Recharge</div>
+          <div class="offer-desc">&#8377;299 — 28 days unlimited calls &amp; 2GB/day data. Free Disney+ Hotstar Mobile.</div>
+          <div class="offer-claim">
+            <button class="btn btn-primary" style="padding:7px 16px;font-size:12px;">Recharge Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="offer-row">
+        <div class="offer-icon-wrap" style="background:var(--red-light);color:var(--red);">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="offer-body">
+          <div class="offer-title">FASTag Recharge</div>
+          <div class="offer-desc">Add money to FASTag and get 2.5% cashback. Valid on Highway journeys above &#8377;100.</div>
+          <div class="offer-claim">
+            <button class="btn btn-outline" style="padding:7px 16px;font-size:12px;">Recharge FASTag</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scratch cards section — contained, not overwhelming -->
+  <div class="section mt-20 fu fu3">
+    <div class="section-header">
+      <span class="section-title">Your Scratch Cards</span>
+      <span style="font-size:12px;color:var(--ink-300);">3 pending</span>
+    </div>
+    <div class="scroll-x" style="gap:12px;padding:4px 20px;margin:0 -20px;">
+
+      <div style="flex:0 0 140px;background:var(--white);border:1px solid var(--ink-100);border-radius:var(--radius-md);padding:16px;text-align:center;cursor:pointer;" onclick="scratchReveal(this)">
+        <div style="font-size:28px;margin-bottom:8px;">--</div>
+        <div class="scratch-overlay" style="background:linear-gradient(135deg,var(--blue-light),var(--blue-mid));border-radius:8px;padding:12px 0;margin-bottom:8px;">
+          <div style="font-size:13px;font-weight:600;color:var(--blue-dark);">Scratch to reveal</div>
+        </div>
+        <div style="font-size:11px;color:var(--ink-300);">From UPI payment</div>
+      </div>
+
+      <div style="flex:0 0 140px;background:var(--white);border:1px solid var(--ink-100);border-radius:var(--radius-md);padding:16px;text-align:center;cursor:pointer;" onclick="scratchReveal(this)">
+        <div style="font-size:28px;margin-bottom:8px;">--</div>
+        <div style="background:var(--green-light);border-radius:8px;padding:12px 0;margin-bottom:8px;">
+          <div style="font-size:13px;font-weight:600;color:var(--green);">Scratch to reveal</div>
+        </div>
+        <div style="font-size:11px;color:var(--ink-300);">From bill payment</div>
+      </div>
+
+      <div style="flex:0 0 140px;background:var(--white);border:1px solid var(--ink-100);border-radius:var(--radius-md);padding:16px;text-align:center;cursor:pointer;" onclick="scratchReveal(this)">
+        <div style="font-size:28px;margin-bottom:8px;">--</div>
+        <div style="background:var(--amber-light);border-radius:8px;padding:12px 0;margin-bottom:8px;">
+          <div style="font-size:13px;font-weight:600;color:var(--amber);">Scratch to reveal</div>
+        </div>
+        <div style="font-size:11px;color:var(--ink-300);">Gold coins reward</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+</div>
+
+<script src="script.js"></script>
+<script>
+renderNav('offers');
+
+function switchOfferTab(cat, btn) {
+  // Reset all tab buttons
+  document.querySelectorAll('[id^="tab-"]').forEach(b => {
+    b.style.background = '';
+    b.style.color = '';
+    b.classList.add('btn-ghost');
+    b.classList.remove('btn-primary');
+    b.style.cssText = 'padding:8px 16px;border-radius:99px;font-size:13px;flex:0 0 auto;';
+  });
+  btn.style.cssText = 'padding:8px 16px;border-radius:99px;font-size:13px;flex:0 0 auto;background:var(--blue);color:#fff;';
+
+  // Show/hide sections
+  const sections = ['section-cashback','section-vouchers','section-recharge'];
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      if (cat === 'all') {
+        el.style.display = '';
+      } else {
+        el.style.display = el.dataset.cat === cat ? '' : 'none';
+      }
+    }
+  });
+}
+
+function scratchReveal(card) {
+  const overlay = card.querySelector('.scratch-overlay') || card.querySelector('[style*="Scratch"]');
+  const amounts = ['&#8377;10','&#8377;20','&#8377;30','Better luck next time','&#8377;5','50 Gold Coins'];
+  const won = amounts[Math.floor(Math.random() * amounts.length)];
+  card.children[0].innerHTML = won.startsWith('&#8377;') ? won : won;
+  if (overlay) {
+    overlay.style.opacity = '0';
+    overlay.style.transition = 'opacity .3s';
+    setTimeout(() => overlay.remove(), 300);
+  }
+  card.style.borderColor = won.includes('luck') ? 'var(--ink-100)' : 'var(--green)';
+  card.style.background = won.includes('luck') ? '' : 'var(--green-light)';
+}
+</script>
+</body>
+</html>

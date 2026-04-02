@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paytm — Balance &amp; History</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+
+  <header class="page-header">
+    <a href="index.html" class="back-btn"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></a>
+    <span class="page-header-title">Balance &amp; History</span>
+    <div class="page-header-right" style="display:flex;gap:4px;">
+      <button class="icon-btn" onclick="toggleFilter()">
+        <svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+      </button>
+      <button class="icon-btn">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Account card — balance hidden -->
+  <div class="section" style="padding-top:16px;">
+    <div class="balance-card">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+        <div>
+          <div class="balance-label">HDFC Bank &middot; AC &middot;&middot;&middot;8821</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:6px;">
+            <div id="histBalDisplay" style="font-size:28px;font-weight:600;color:#fff;letter-spacing:-.5px;">&#9679;&#9679;&#9679;&#9679;&#9679;</div>
+            <button id="histEyeBtn" onclick="openPin()" style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.15);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px;">UPI ID: rahul.khatri@okhdfc</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:10px;color:rgba(255,255,255,.5);letter-spacing:.3px;text-transform:uppercase;margin-bottom:4px;">UPI Lite</div>
+          <button style="padding:6px 12px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.22);border-radius:6px;color:#fff;font-size:12px;font-weight:600;font-family:var(--font);cursor:pointer;">Activate</button>
+        </div>
+      </div>
+      <div class="balance-actions" style="margin-top:16px;">
+        <button class="bal-action-btn" onclick="openPin()">Check Balance</button>
+        <button class="bal-action-btn" onclick="window.location='pay.html'">Add Money</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy alert -->
+  <div class="section mt-12">
+    <div class="alert alert-amber">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <div class="alert-body">Your mobile number is visible in your UPI ID. <span class="alert-action" onclick="this.closest('.alert').remove()">Change UPI ID</span></div>
+    </div>
+  </div>
+
+  <!-- Month stats -->
+  <div class="section mt-16">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div class="card card-pad">
+        <div style="font-size:10px;font-weight:600;color:var(--ink-300);letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px;">Sent (June)</div>
+        <div style="font-size:22px;font-weight:600;color:var(--ink-900);letter-spacing:-.5px;">&#8377;18,340</div>
+        <div style="font-size:11px;color:var(--ink-300);margin-top:3px;">8 transactions</div>
+      </div>
+      <div class="card card-pad">
+        <div style="font-size:10px;font-weight:600;color:var(--ink-300);letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px;">Received (June)</div>
+        <div style="font-size:22px;font-weight:600;color:var(--green);letter-spacing:-.5px;">&#8377;5,200</div>
+        <div style="font-size:11px;color:var(--ink-300);margin-top:3px;">3 transactions</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter row -->
+  <div id="filterRow" style="display:none;" class="section mt-12">
+    <div class="scroll-x" style="gap:8px;padding:4px 20px;margin:0 -20px;">
+      <button style="padding:7px 14px;font-size:12px;border-radius:99px;white-space:nowrap;background:var(--blue);color:#fff;border:none;font-family:var(--font);font-weight:600;cursor:pointer;" id="f-all" onclick="filterTxns('all',this)">All</button>
+      <button style="padding:7px 14px;font-size:12px;border-radius:99px;white-space:nowrap;background:var(--ink-050);color:var(--ink-700);border:1px solid var(--ink-100);font-family:var(--font);font-weight:500;cursor:pointer;" onclick="filterTxns('sent',this)">Sent</button>
+      <button style="padding:7px 14px;font-size:12px;border-radius:99px;white-space:nowrap;background:var(--ink-050);color:var(--ink-700);border:1px solid var(--ink-100);font-family:var(--font);font-weight:500;cursor:pointer;" onclick="filterTxns('recv',this)">Received</button>
+      <button style="padding:7px 14px;font-size:12px;border-radius:99px;white-space:nowrap;background:var(--ink-050);color:var(--ink-700);border:1px solid var(--ink-100);font-family:var(--font);font-weight:500;cursor:pointer;">This Month</button>
+    </div>
+  </div>
+
+  <!-- Transactions -->
+  <div class="section mt-16">
+    <div class="section-header">
+      <span class="section-title">Transactions</span>
+    </div>
+    <div class="card" id="txnList">
+
+      <div class="month-header">
+        <span class="month-label">June 2025</span>
+        <span class="month-total">Net: <strong style="color:var(--red);">&#8211;&#8377;13,140</strong></span>
+      </div>
+
+      <div class="txn" data-type="sent">
+        <div class="av av-40 c2">PS</div>
+        <div class="txn-body"><div class="txn-name">Priya Sharma</div><div class="txn-time">29 Jun &middot; 2:15 PM &middot; Dinner split</div></div>
+        <div class="txn-right"><div class="txn-amt sent">&#8211;&#8377;2,500</div><div class="txn-tag">Sent</div></div>
+      </div>
+
+      <div class="txn" data-type="recv">
+        <div class="av av-40 c1">AV</div>
+        <div class="txn-body"><div class="txn-name">Amit Verma</div><div class="txn-time">28 Jun &middot; 8:45 PM</div></div>
+        <div class="txn-right"><div class="txn-amt recv">+&#8377;800</div><div class="txn-tag">Received</div></div>
+      </div>
+
+      <div class="txn" data-type="sent">
+        <div class="av av-40 c3" style="font-size:11px;">UG</div>
+        <div class="txn-body"><div class="txn-name">UGVCL Electricity</div><div class="txn-time">28 Jun &middot; 10:00 AM &middot; Bill payment</div></div>
+        <div class="txn-right"><div class="txn-amt sent">&#8211;&#8377;1,240</div><div class="txn-tag">Bill</div></div>
+      </div>
+
+      <div class="txn" data-type="sent">
+        <div class="av av-40 c4">RJ</div>
+        <div class="txn-body"><div class="txn-name">Ravi Joshi</div><div class="txn-time">27 Jun &middot; 6:30 PM &middot; Coffee</div></div>
+        <div class="txn-right"><div class="txn-amt sent">&#8211;&#8377;350</div><div class="txn-tag">Sent</div></div>
+      </div>
+
+      <div class="txn" data-type="recv">
+        <div class="av av-40 c5">SM</div>
+        <div class="txn-body"><div class="txn-name">Sneha Mehta</div><div class="txn-time">25 Jun &middot; 3:00 PM &middot; Movie tickets</div></div>
+        <div class="txn-right"><div class="txn-amt recv">+&#8377;400</div><div class="txn-tag">Received</div></div>
+      </div>
+
+      <div class="txn" data-type="sent">
+        <div class="av av-40 c6" style="font-size:11px;">RS</div>
+        <div class="txn-body"><div class="txn-name">Green Valley Society</div><div class="txn-time">1 Jun &middot; 10:00 AM &middot; Maintenance</div></div>
+        <div class="txn-right"><div class="txn-amt sent">&#8211;&#8377;4,800</div><div class="txn-tag">Society</div></div>
+      </div>
+
+      <div class="txn" data-type="sent">
+        <div class="av av-40 c1">JR</div>
+        <div class="txn-body"><div class="txn-name">Jio Recharge</div><div class="txn-time">1 Jun &middot; 9:00 AM &middot; Mobile recharge</div></div>
+        <div class="txn-right"><div class="txn-amt sent">&#8211;&#8377;299</div><div class="txn-tag">Recharge</div></div>
+      </div>
+
+      <!-- May -->
+      <div class="month-header">
+        <span class="month-label">May 2025</span>
+        <span class="month-total">Net: <strong style="color:var(--red);">&#8211;&#8377;9,200</strong></span>
+      </div>
+
+      <div class="txn" data-type="recv">
+        <div class="av av-40 c3">NK</div>
+        <div class="txn-body"><div class="txn-name">Neeraj Kumar</div><div class="txn-time">31 May &middot; 5:00 PM &middot; Freelance work</div></div>
+        <div class="txn-right"><div class="txn-amt recv">+&#8377;4,000</div><div class="txn-tag">Received</div></div>
+      </div>
+
+      <div class="txn" data-type="sent">
+        <div class="av av-40 c5">SP</div>
+        <div class="txn-body"><div class="txn-name">Sneha Patel</div><div class="txn-time">28 May &middot; 7:30 PM &middot; Gift</div></div>
+        <div class="txn-right"><div class="txn-amt sent">&#8211;&#8377;2,000</div><div class="txn-tag">Sent</div></div>
+      </div>
+
+      <div class="txn" data-type="sent">
+        <div class="av av-40 c6" style="font-size:11px;">RS</div>
+        <div class="txn-body"><div class="txn-name">Green Valley Society</div><div class="txn-time">1 May &middot; 10:00 AM &middot; Maintenance</div></div>
+        <div class="txn-right"><div class="txn-amt sent">&#8211;&#8377;4,800</div><div class="txn-tag">Society</div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="height:24px;"></div>
+</div>
+
+<!-- PIN -->
+<div class="pin-overlay" id="pinOverlay">
+  <div class="pin-panel">
+    <div class="sheet-handle"><span></span></div>
+    <div style="padding:4px 0 0;text-align:center;">
+      <div style="font-size:16px;font-weight:600;color:var(--ink-900);">Enter UPI PIN</div>
+      <div style="font-size:13px;color:var(--ink-300);margin-top:4px;">To check your account balance</div>
+      <div class="pin-dots" id="pinDots">
+        <div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div>
+        <div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div>
+      </div>
+      <div class="pin-keypad">
+        <button class="pin-key" onclick="pinInput('1')">1</button>
+        <button class="pin-key" onclick="pinInput('2')">2</button>
+        <button class="pin-key" onclick="pinInput('3')">3</button>
+        <button class="pin-key" onclick="pinInput('4')">4</button>
+        <button class="pin-key" onclick="pinInput('5')">5</button>
+        <button class="pin-key" onclick="pinInput('6')">6</button>
+        <button class="pin-key" onclick="pinInput('7')">7</button>
+        <button class="pin-key" onclick="pinInput('8')">8</button>
+        <button class="pin-key" onclick="pinInput('9')">9</button>
+        <button class="pin-key" style="font-size:13px;color:var(--ink-300);" onclick="closePin()">Cancel</button>
+        <button class="pin-key" onclick="pinInput('0')">0</button>
+        <button class="pin-key del" onclick="pinDelete()">&#9003;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+renderNav('history');
+
+function toggleFilter() {
+  const row = document.getElementById('filterRow');
+  row.style.display = row.style.display === 'none' ? 'block' : 'none';
+}
+function filterTxns(type, btn) {
+  document.getElementById('txnList').querySelectorAll('.txn').forEach(el => {
+    el.style.display = (type === 'all' || el.dataset.type === type) ? '' : 'none';
+  });
+}
+
+let pinVal = '';
+function openPin() {
+  pinVal = '';
+  updatePinDots();
+  document.getElementById('pinOverlay').classList.add('active');
+}
+function closePin() {
+  document.getElementById('pinOverlay').classList.remove('active');
+  pinVal = '';
+  updatePinDots();
+}
+function pinInput(d) {
+  if (pinVal.length >= 6) return;
+  pinVal += d;
+  updatePinDots();
+  if (pinVal.length === 6) setTimeout(() => { closePin(); showBalance(); }, 250);
+}
+function pinDelete() { pinVal = pinVal.slice(0,-1); updatePinDots(); }
+function updatePinDots() {
+  document.querySelectorAll('.pin-dot').forEach((d,i) => d.classList.toggle('filled', i < pinVal.length));
+}
+function showBalance() {
+  document.getElementById('histBalDisplay').textContent = '\u20B924,560.00';
+  document.getElementById('histBalDisplay').style.fontSize = '28px';
+  document.getElementById('histEyeBtn').innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>`;
+  document.getElementById('histEyeBtn').onclick = hideBalance;
+}
+function hideBalance() {
+  document.getElementById('histBalDisplay').textContent = '\u25CF\u25CF\u25CF\u25CF\u25CF';
+  document.getElementById('histEyeBtn').innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`;
+  document.getElementById('histEyeBtn').onclick = openPin;
+}
+</script>
+</body>
+</html>

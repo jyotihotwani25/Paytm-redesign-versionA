@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paytm — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-brand">
+    <span class="topbar-logo">pay<span>tm</span></span>
+    <span class="topbar-upi">UPI</span>
+  </div>
+  <div class="topbar-right" style="display:flex;align-items:center;gap:4px;">
+    <button class="icon-btn">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+    </button>
+    <button class="icon-btn" onclick="window.location='history.html'">
+      <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+    </button>
+    <div class="av av-40 c1" style="cursor:pointer;font-size:13px;" onclick="window.location='profile.html'">RK</div>
+  </div>
+</header>
+
+<div class="page">
+
+<!-- HERO -->
+<section class="hero">
+  <div style="position:relative;z-index:1;">
+    <div class="hero-greeting">Good morning,</div>
+    <div class="hero-name">Rahul Khatri</div>
+
+    <div style="margin-top:20px;">
+      <div class="hero-balance-label">Available Balance</div>
+      <div style="display:flex;align-items:center;gap:10px;margin-top:5px;">
+        <div id="balanceDisplay" class="hero-balance-hidden" onclick="openPin()">&#9679;&#9679;&#9679;&#9679;&#9679;</div>
+        <button class="hero-eye-btn" id="eyeBtn" onclick="openPin()">
+          <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+      <div class="hero-bank-label" id="bankLabel">HDFC Bank · AC &middot;&middot;&middot;8821 &nbsp;&middot;&nbsp; Tap eye to check balance</div>
+    </div>
+
+    <div class="hero-actions">
+      <button class="hero-action-btn send" onclick="openSendSheet()">
+        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Send Money
+      </button>
+      <button class="hero-action-btn" onclick="openReceiveSheet()">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Receive Money
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- REMINDERS -->
+<div id="reminders" style="padding:14px 16px 0;">
+
+  <div class="reminder-pill due" id="rem1">
+    <div class="reminder-icon" style="background:var(--red-light);color:var(--red);">
+      <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+    </div>
+    <div class="reminder-body">
+      <div class="reminder-title">Electricity Bill Due</div>
+      <div class="reminder-sub">UGVCL &middot; &#8377;1,240 &middot; Due in 2 days</div>
+    </div>
+    <span class="reminder-cta" onclick="window.location='pay.html'">Pay Now</span>
+    <div class="reminder-close" onclick="dismissReminder('rem1')">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </div>
+  </div>
+
+  <div class="reminder-pill" id="rem2" style="margin-top:8px;">
+    <div class="reminder-icon" style="background:#E0F2FE;color:#0284C7;">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92V19a2 2 0 01-2.18 2A19.79 19.79 0 012 4.18 2 2 0 014 2h2.09A2 2 0 018 3.71c.327.96.694 1.9 1.1 2.81a2 2 0 01-.45 2.11L7.91 9.37A16 16 0 0014.63 16l.75-.75a2 2 0 012.11-.45c.91.406 1.85.773 2.81 1.1A2 2 0 0122 16.92z"/></svg>
+    </div>
+    <div class="reminder-body">
+      <div class="reminder-title">Jio Plan Expired</div>
+      <div class="reminder-sub">+91 98200 11234 &middot; Expired yesterday</div>
+    </div>
+    <span class="reminder-cta" onclick="window.location='pay.html'">Recharge</span>
+    <div class="reminder-close" onclick="dismissReminder('rem2')">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </div>
+  </div>
+
+</div>
+
+<!-- QUICK ACTIONS -->
+<div class="section" style="padding-top:18px;">
+  <div class="card">
+    <div class="pay-grid" style="padding:8px 4px 6px;">
+      <a href="pay.html" class="pay-item">
+        <div class="pay-ico bl"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+        <span class="pay-label">Pay Contact</span>
+      </a>
+      <a href="scan.html" class="pay-item">
+        <div class="pay-ico bl"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h.01M14 18h3M17 14v4M20 14h.01M20 18h.01"/></svg></div>
+        <span class="pay-label">Scan &amp; Pay</span>
+      </a>
+      <a href="history.html" class="pay-item">
+        <div class="pay-ico bl"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 15.5"/></svg></div>
+        <span class="pay-label">Balance &amp; History</span>
+      </a>
+      <a href="pay.html" class="pay-item">
+        <div class="pay-ico bl"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+        <span class="pay-label">Bank Transfer</span>
+      </a>
+      <a href="#" class="pay-item">
+        <div class="pay-ico gr"><svg viewBox="0 0 24 24"><path d="M22 16.92V19a2 2 0 01-2.18 2A19.79 19.79 0 012 4.18 2 2 0 014 2h2.09A2 2 0 018 3.71c.327.96.694 1.9 1.1 2.81a2 2 0 01-.45 2.11L7.91 9.37A16 16 0 0014.63 16l.75-.75a2 2 0 012.11-.45c.91.406 1.85.773 2.81 1.1A2 2 0 0122 16.92z"/></svg></div>
+        <span class="pay-label">Mobile Recharge</span>
+      </a>
+      <a href="#" class="pay-item">
+        <div class="pay-ico am"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <span class="pay-label">Electricity</span>
+      </a>
+      <a href="#" class="pay-item">
+        <div class="pay-ico pk"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+        <span class="pay-label">Credit Card</span>
+      </a>
+      <a href="#" class="pay-item">
+        <div class="pay-ico pp"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></div>
+        <span class="pay-label">More</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- RECENT CONTACTS -->
+<div class="section" style="padding-top:18px;">
+  <div class="section-header">
+    <span class="section-title">Recent Contacts</span>
+    <a href="pay.html" class="section-link">See all</a>
+  </div>
+  <div class="rc-scroll">
+    <div class="rc-item" onclick="quickPay('Priya Sharma','priya.s@okicici')"><div class="av av-48 c2">PS</div><div class="rc-name">Priya</div></div>
+    <div class="rc-item" onclick="quickPay('Amit Verma','amit.v@okaxis')"><div class="av av-48 c1">AV</div><div class="rc-name">Amit</div></div>
+    <div class="rc-item" onclick="quickPay('Neha Patel','neha.p@paytm')"><div class="av av-48 c3">NP</div><div class="rc-name">Neha</div></div>
+    <div class="rc-item" onclick="quickPay('Ravi Joshi','ravi.j@ybl')"><div class="av av-48 c4">RJ</div><div class="rc-name">Ravi</div></div>
+    <div class="rc-item" onclick="quickPay('Sneha Mehta','sneha.m@okhdfc')"><div class="av av-48 c5">SM</div><div class="rc-name">Sneha</div></div>
+    <div class="rc-item" onclick="quickPay('Karan Desai','karan.d@ptyes')"><div class="av av-48 c6">KD</div><div class="rc-name">Karan</div></div>
+    <div class="rc-item" onclick="window.location='pay.html'"><div class="av av-48" style="background:var(--ink-050);color:var(--ink-300);font-size:20px;font-weight:300;">+</div><div class="rc-name">New</div></div>
+  </div>
+</div>
+
+<!-- RECENT TRANSACTIONS -->
+<div class="section" style="padding-top:18px;">
+  <div class="section-header">
+    <span class="section-title">Recent Transactions</span>
+    <a href="history.html" class="section-link">See all</a>
+  </div>
+  <div class="card">
+    <div class="txn" style="cursor:pointer;" onclick="openTxnDetail({name:'Priya Sharma',upi:'priya.s@okicici',amt:'2,500',type:'sent',date:'Today · 2:15 PM',ref:'TXN782341900561',cat:'Dinner split',init:'PS',col:'c2'})">
+      <div class="av av-40 c2">PS</div>
+      <div class="txn-body"><div class="txn-name">Priya Sharma</div><div class="txn-time">Today · 2:15 PM &middot; Dinner split</div></div>
+      <div class="txn-right"><div class="txn-amt sent">&#8211;&#8377;2,500</div><div class="txn-tag">Sent</div></div>
+    </div>
+    <div class="txn" style="cursor:pointer;" onclick="openTxnDetail({name:'Amit Verma',upi:'amit.v@okaxis',amt:'800',type:'recv',date:'Yesterday · 8:45 PM',ref:'TXN910023456781',cat:'Received',init:'AV',col:'c1'})">
+      <div class="av av-40 c1">AV</div>
+      <div class="txn-body"><div class="txn-name">Amit Verma</div><div class="txn-time">Yesterday · 8:45 PM</div></div>
+      <div class="txn-right"><div class="txn-amt recv">+&#8377;800</div><div class="txn-tag">Received</div></div>
+    </div>
+    <div class="txn" style="cursor:pointer;" onclick="openTxnDetail({name:'UGVCL Electricity',upi:'ugvcl@billpay',amt:'1,240',type:'sent',date:'28 Jun · 10:00 AM',ref:'TXN334512367891',cat:'Electricity Bill',init:'UG',col:'c3'})">
+      <div class="av av-40 c3" style="font-size:11px;">UG</div>
+      <div class="txn-body"><div class="txn-name">UGVCL Electricity</div><div class="txn-time">28 Jun · 10:00 AM &middot; Bill payment</div></div>
+      <div class="txn-right"><div class="txn-amt sent">&#8211;&#8377;1,240</div><div class="txn-tag">Bill</div></div>
+    </div>
+    <div class="txn" style="cursor:pointer;" onclick="openTxnDetail({name:'Ravi Joshi',upi:'ravi.j@ybl',amt:'350',type:'sent',date:'27 Jun · 6:30 PM',ref:'TXN557891234560',cat:'Coffee',init:'RJ',col:'c4'})">
+      <div class="av av-40 c4">RJ</div>
+      <div class="txn-body"><div class="txn-name">Ravi Joshi</div><div class="txn-time">27 Jun · 6:30 PM &middot; Coffee</div></div>
+      <div class="txn-right"><div class="txn-amt sent">&#8211;&#8377;350</div><div class="txn-tag">Sent</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- RECHARGE & BILLS -->
+<div class="section" style="padding-top:18px;">
+  <div class="section-header">
+    <span class="section-title">Recharge &amp; Bills</span>
+    <span class="section-link" style="cursor:pointer;">View More</span>
+  </div>
+  <div class="recharge-scroll">
+    <div class="recharge-card" onclick="window.location='pay.html'">
+      <div style="width:36px;height:36px;border-radius:9px;background:#E0F2FE;display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0284C7" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92V19a2 2 0 01-2.18 2A19.79 19.79 0 012 4.18 2 2 0 014 2h2.09A2 2 0 018 3.71c.327.96.694 1.9 1.1 2.81a2 2 0 01-.45 2.11L7.91 9.37A16 16 0 0014.63 16l.75-.75a2 2 0 012.11-.45c.91.406 1.85.773 2.81 1.1A2 2 0 0122 16.92z"/></svg>
+      </div>
+      <div class="recharge-card-title">Mobile</div>
+      <div class="recharge-card-sub">Jio, Airtel, Vi</div>
+    </div>
+    <div class="recharge-card" onclick="window.location='pay.html'">
+      <div style="width:36px;height:36px;border-radius:9px;background:var(--amber-light);display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="1.8" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <div class="recharge-card-title">Electricity</div>
+      <div class="recharge-card-sub">UGVCL, Torrent</div>
+    </div>
+    <div class="recharge-card" onclick="window.location='pay.html'">
+      <div style="width:36px;height:36px;border-radius:9px;background:var(--green-light);display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="recharge-card-title">Piped Gas</div>
+      <div class="recharge-card-sub">GSPC, MGL</div>
+    </div>
+    <div class="recharge-card" onclick="window.location='pay.html'">
+      <div style="width:36px;height:36px;border-radius:9px;background:var(--red-light);display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+      </div>
+      <div class="recharge-card-title">Loan EMI</div>
+      <div class="recharge-card-sub">Auto or manual</div>
+    </div>
+    <div class="recharge-card" onclick="window.location='pay.html'">
+      <div style="width:36px;height:36px;border-radius:9px;background:#EDE9FE;display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+      </div>
+      <div class="recharge-card-title">FASTag</div>
+      <div class="recharge-card-sub">Recharge tag</div>
+    </div>
+  </div>
+</div>
+
+<!-- OTHER SERVICES -->
+<div class="section" style="padding-top:18px;">
+  <div class="section-header"><span class="section-title">Other Services</span></div>
+  <div class="card">
+    <div class="pay-grid" style="padding:8px 4px 6px;">
+      <a href="#" class="pay-item"><div class="pay-ico bl"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><span class="pay-label">Personal Loan</span></a>
+      <a href="#" class="pay-item"><div class="pay-ico gr"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><span class="pay-label">Insurance</span></a>
+      <a href="#" class="pay-item"><div class="pay-ico am"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><span class="pay-label">Stocks</span></a>
+      <a href="#" class="pay-item"><div class="pay-ico rd"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><span class="pay-label">Gold SIP</span></a>
+      <a href="#" class="pay-item"><div class="pay-ico pk"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><span class="pay-label">Travel</span></a>
+      <a href="#" class="pay-item"><div class="pay-ico pp"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><span class="pay-label">Credit Score</span></a>
+      <a href="#" class="pay-item"><div class="pay-ico bl"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><span class="pay-label">DTH Recharge</span></a>
+      <a href="#" class="pay-item"><div class="pay-ico gr"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div><span class="pay-label">All Services</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- REWARDS MINI -->
+<div class="section" style="padding-top:18px;">
+  <div class="section-header">
+    <span class="section-title">Rewards &amp; Offers</span>
+    <a href="offers.html" class="section-link">See all</a>
+  </div>
+
+  <div class="reward-mini" onclick="window.location='offers.html'">
+    <div class="reward-mini-coins">
+      <svg viewBox="0 0 32 32" width="28" height="28">
+        <circle cx="16" cy="16" r="16" fill="#F59E0B" opacity=".2"/>
+        <circle cx="16" cy="16" r="11" fill="#F59E0B" opacity=".35"/>
+        <text x="16" y="20" text-anchor="middle" fill="#FCD34D" font-size="11" font-weight="700" font-family="sans-serif">G</text>
+      </svg>
+    </div>
+    <div class="reward-mini-body">
+      <div class="reward-mini-title">568 Gold Coins &nbsp;&middot;&nbsp; &#8377;112 Cashback</div>
+      <div class="reward-mini-sub">3 scratch cards &middot; Vouchers available</div>
+    </div>
+    <div class="reward-mini-cta">View &rsaquo;</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;">
+    <div style="background:var(--white);border:1px solid var(--ink-100);border-radius:var(--radius-md);padding:14px;cursor:pointer;" onclick="window.location='offers.html'">
+      <span class="badge badge-green" style="margin-bottom:8px;">10% off</span>
+      <div style="font-size:13px;font-weight:600;color:var(--ink-900);">Mobile Recharge</div>
+      <div style="font-size:11px;color:var(--ink-300);margin-top:3px;">Up to &#8377;50 cashback</div>
+    </div>
+    <div style="background:var(--white);border:1px solid var(--ink-100);border-radius:var(--radius-md);padding:14px;cursor:pointer;" onclick="window.location='offers.html'">
+      <span class="badge badge-blue" style="margin-bottom:8px;">&#8377;30 off</span>
+      <div style="font-size:13px;font-weight:600;color:var(--ink-900);">Electricity Bill</div>
+      <div style="font-size:11px;color:var(--ink-300);margin-top:3px;">Via Paytm UPI</div>
+    </div>
+  </div>
+</div>
+
+<div style="height:24px;"></div>
+</div>
+
+<!-- ── SEND SHEET ── -->
+<div class="sheet-overlay" id="sendOverlay" onclick="closeSendSheet()"></div>
+<div class="sheet-panel" id="sendPanel">
+  <div class="sheet-handle"><span></span></div>
+  <div style="padding:4px 20px 0;">
+    <div style="font-size:17px;font-weight:600;color:var(--ink-900);margin-bottom:14px;">Send Money</div>
+    <div class="input-wrap" style="position:relative;">
+      <svg viewBox="0 0 24 24" style="position:absolute;left:14px;width:18px;height:18px;stroke:var(--ink-300);fill:none;stroke-width:1.8;z-index:1;"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+      <input class="input" type="text" placeholder="Name, UPI ID or mobile number" id="sendSearch" oninput="filterSendList(this.value)" style="padding-right:48px;">
+      <div onclick="goScan()" title="Scan QR" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:1;">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h.01M14 18h3M17 14v4M20 14h.01"/></svg>
+      </div>
+    </div>
+    <div style="font-size:11px;font-weight:600;color:var(--ink-300);letter-spacing:.5px;text-transform:uppercase;margin:16px 0 10px;">Recent</div>
+    <div class="rc-scroll" style="padding:0;margin:0 0 12px;">
+      <div class="rc-item" onclick="selectPayee('Priya Sharma','priya.s@okicici')"><div class="av av-40 c2">PS</div><div class="rc-name">Priya</div></div>
+      <div class="rc-item" onclick="selectPayee('Amit Verma','amit.v@okaxis')"><div class="av av-40 c1">AV</div><div class="rc-name">Amit</div></div>
+      <div class="rc-item" onclick="selectPayee('Neha Patel','neha.p@paytm')"><div class="av av-40 c3">NP</div><div class="rc-name">Neha</div></div>
+      <div class="rc-item" onclick="selectPayee('Ravi Joshi','ravi.j@ybl')"><div class="av av-40 c4">RJ</div><div class="rc-name">Ravi</div></div>
+      <div class="rc-item" onclick="selectPayee('Karan Desai','karan.d@ptyes')"><div class="av av-40 c6">KD</div><div class="rc-name">Karan</div></div>
+    </div>
+    <div id="sendContactList" style="max-height:240px;overflow-y:auto;border-radius:var(--radius-sm);border:1px solid var(--ink-100);">
+      <div class="contact" data-name="Priya Sharma" onclick="selectPayee('Priya Sharma','priya.s@okicici')"><div class="av av-40 c2">PS</div><div class="contact-info"><div class="contact-name">Priya Sharma</div><div class="contact-sub">priya.s@okicici</div></div></div>
+      <div class="contact" data-name="Amit Verma" onclick="selectPayee('Amit Verma','amit.v@okaxis')"><div class="av av-40 c1">AV</div><div class="contact-info"><div class="contact-name">Amit Verma</div><div class="contact-sub">amit.v@okaxis</div></div></div>
+      <div class="contact" data-name="Neha Patel" onclick="selectPayee('Neha Patel','neha.p@paytm')"><div class="av av-40 c3">NP</div><div class="contact-info"><div class="contact-name">Neha Patel</div><div class="contact-sub">neha.p@paytm</div></div></div>
+      <div class="contact" data-name="Ravi Joshi" onclick="selectPayee('Ravi Joshi','ravi.j@ybl')"><div class="av av-40 c4">RJ</div><div class="contact-info"><div class="contact-name">Ravi Joshi</div><div class="contact-sub">ravi.j@ybl</div></div></div>
+      <div class="contact" data-name="Sneha Mehta" onclick="selectPayee('Sneha Mehta','sneha.m@okhdfc')"><div class="av av-40 c5">SM</div><div class="contact-info"><div class="contact-name">Sneha Mehta</div><div class="contact-sub">sneha.m@okhdfc</div></div></div>
+      <div class="contact" data-name="Karan Desai" onclick="selectPayee('Karan Desai','karan.d@ptyes')"><div class="av av-40 c6">KD</div><div class="contact-info"><div class="contact-name">Karan Desai</div><div class="contact-sub">karan.d@ptyes</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── RECEIVE SHEET ── -->
+<div class="sheet-overlay" id="receiveOverlay" onclick="closeReceiveSheet()"></div>
+<div class="sheet-panel" id="receivePanel">
+  <div class="sheet-handle"><span></span></div>
+  <div style="padding:4px 20px 0;">
+    <div style="font-size:17px;font-weight:600;color:var(--ink-900);margin-bottom:18px;">Receive Money</div>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--ink-100);">
+      <div class="av av-44 c1">RK</div>
+      <div style="flex:1;"><div style="font-size:15px;font-weight:600;color:var(--ink-900);">Rahul Khatri</div><div style="font-size:12px;color:var(--ink-300);margin-top:2px;">HDFC Bank &middot; AC &middot;&middot;&middot;8821</div></div>
+      <span class="badge badge-green">Verified</span>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:170px;height:170px;margin:0 auto;border:3px solid var(--blue);border-radius:14px;padding:12px;display:flex;align-items:center;justify-content:center;">
+        <svg width="138" height="138" viewBox="0 0 140 140" fill="none">
+          <rect x="0" y="0" width="42" height="42" rx="4" fill="#0D1117"/><rect x="8" y="8" width="26" height="26" fill="white"/><rect x="13" y="13" width="16" height="16" fill="#0D1117"/>
+          <rect x="98" y="0" width="42" height="42" rx="4" fill="#0D1117"/><rect x="106" y="8" width="26" height="26" fill="white"/><rect x="111" y="13" width="16" height="16" fill="#0D1117"/>
+          <rect x="0" y="98" width="42" height="42" rx="4" fill="#0D1117"/><rect x="8" y="106" width="26" height="26" fill="white"/><rect x="13" y="111" width="16" height="16" fill="#0D1117"/>
+          <rect x="48" y="4" width="6" height="6" rx="1" fill="#0D1117"/><rect x="58" y="4" width="6" height="6" rx="1" fill="#0D1117"/><rect x="70" y="10" width="6" height="6" rx="1" fill="#0D1117"/><rect x="80" y="4" width="6" height="6" rx="1" fill="#0D1117"/>
+          <rect x="4" y="48" width="6" height="6" rx="1" fill="#0D1117"/><rect x="14" y="58" width="6" height="6" rx="1" fill="#0D1117"/><rect x="4" y="68" width="6" height="6" rx="1" fill="#0D1117"/><rect x="24" y="58" width="6" height="6" rx="1" fill="#0D1117"/>
+          <rect x="52" y="52" width="12" height="12" rx="2" fill="#00BAF2"/>
+          <rect x="68" y="48" width="6" height="6" rx="1" fill="#0D1117"/><rect x="80" y="56" width="6" height="6" rx="1" fill="#0D1117"/><rect x="94" y="48" width="6" height="6" rx="1" fill="#0D1117"/><rect x="108" y="52" width="6" height="6" rx="1" fill="#0D1117"/>
+          <rect x="48" y="68" width="6" height="6" rx="1" fill="#0D1117"/><rect x="60" y="78" width="6" height="6" rx="1" fill="#0D1117"/><rect x="74" y="68" width="6" height="6" rx="1" fill="#0D1117"/><rect x="88" y="76" width="6" height="6" rx="1" fill="#0D1117"/>
+          <rect x="48" y="100" width="6" height="6" rx="1" fill="#0D1117"/><rect x="62" y="110" width="6" height="6" rx="1" fill="#0D1117"/><rect x="74" y="100" width="6" height="6" rx="1" fill="#0D1117"/><rect x="86" y="114" width="6" height="6" rx="1" fill="#0D1117"/><rect x="100" y="100" width="6" height="6" rx="1" fill="#0D1117"/><rect x="112" y="110" width="6" height="6" rx="1" fill="#0D1117"/>
+        </svg>
+      </div>
+      <div style="font-size:12px;color:var(--ink-300);margin-top:10px;">Ask them to scan to pay you</div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:var(--ink-050);border-radius:var(--radius-sm);padding:12px 14px;margin-top:16px;">
+      <div><div style="font-size:10px;color:var(--ink-300);font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-bottom:3px;">UPI ID</div><div style="font-size:14px;font-weight:600;color:var(--ink-900);">rahul.khatri@okhdfc</div></div>
+      <button id="upiCopyBtn" onclick="doCopyUpi()" style="font-size:13px;font-weight:600;color:var(--blue);background:none;border:none;cursor:pointer;">Copy</button>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;">
+      <button class="btn btn-ghost btn-full" style="gap:6px;font-size:13px;"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Share</button>
+      <button class="btn btn-outline btn-full" style="gap:6px;font-size:13px;"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── TXN DETAIL SHEET ── -->
+<div class="sheet-overlay" id="txnOverlay" onclick="closeTxnDetail()"></div>
+<div class="sheet-panel" id="txnPanel">
+  <div class="sheet-handle"><span></span></div>
+  <div style="padding:4px 20px 0;">
+    <div style="text-align:center;padding:8px 0 16px;border-bottom:1px solid var(--ink-100);">
+      <div style="width:52px;height:52px;border-radius:50%;background:var(--green-light);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div id="td-status" style="font-size:13px;font-weight:600;color:var(--green);">Payment Successful</div>
+      <div id="td-amt" style="font-size:34px;font-weight:600;color:var(--ink-900);letter-spacing:-1px;margin-top:4px;">&#8211;&#8377;2,500</div>
+    </div>
+    <div style="padding:14px 0;border-bottom:1px solid var(--ink-100);display:flex;align-items:center;gap:12px;">
+      <div class="av av-44 c2" id="td-av">PS</div>
+      <div>
+        <div style="font-size:11px;color:var(--ink-300);text-transform:uppercase;font-weight:600;letter-spacing:.4px;margin-bottom:2px;" id="td-dir">To</div>
+        <div style="font-size:15px;font-weight:600;color:var(--ink-900);" id="td-name">Priya Sharma</div>
+        <div style="font-size:12px;color:var(--ink-300);margin-top:2px;" id="td-upi">priya.s@okicici</div>
+      </div>
+    </div>
+    <div style="padding:12px 0;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;"><span style="font-size:13px;color:var(--ink-300);">Date &amp; Time</span><span style="font-size:13px;font-weight:500;color:var(--ink-900);" id="td-date">Today &middot; 2:15 PM</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-top:1px solid var(--ink-100);"><span style="font-size:13px;color:var(--ink-300);">Category</span><span style="font-size:13px;font-weight:500;color:var(--ink-900);" id="td-cat">Dinner split</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-top:1px solid var(--ink-100);">
+        <span style="font-size:13px;color:var(--ink-300);">UPI Ref No.</span>
+        <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:11px;color:var(--ink-500);font-family:monospace;" id="td-ref">TXN782341900561</span><button id="td-copy" style="font-size:12px;font-weight:600;color:var(--blue);background:none;border:none;cursor:pointer;" onclick="copyTxnRef()">Copy</button></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-top:1px solid var(--ink-100);"><span style="font-size:13px;color:var(--ink-300);">Paid from</span><span style="font-size:13px;font-weight:500;color:var(--ink-900);">HDFC Bank &middot; UPI</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+      <button class="btn btn-ghost btn-full" onclick="closeTxnDetail();window.location='pay.html'">Pay Again</button>
+      <button class="btn btn-outline btn-full" onclick="closeTxnDetail();window.location='history.html'">Full History</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── PIN OVERLAY ── -->
+<div class="pin-overlay" id="pinOverlay">
+  <div class="pin-panel">
+    <div class="sheet-handle"><span></span></div>
+    <div style="padding:4px 0 0;text-align:center;">
+      <div style="font-size:16px;font-weight:600;color:var(--ink-900);">Enter UPI PIN</div>
+      <div style="font-size:13px;color:var(--ink-300);margin-top:4px;">To view your account balance</div>
+      <div class="pin-dots" id="pinDots">
+        <div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div>
+        <div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div>
+      </div>
+      <div class="pin-keypad">
+        <button class="pin-key" onclick="pinInput('1')">1</button>
+        <button class="pin-key" onclick="pinInput('2')">2</button>
+        <button class="pin-key" onclick="pinInput('3')">3</button>
+        <button class="pin-key" onclick="pinInput('4')">4</button>
+        <button class="pin-key" onclick="pinInput('5')">5</button>
+        <button class="pin-key" onclick="pinInput('6')">6</button>
+        <button class="pin-key" onclick="pinInput('7')">7</button>
+        <button class="pin-key" onclick="pinInput('8')">8</button>
+        <button class="pin-key" onclick="pinInput('9')">9</button>
+        <button class="pin-key" style="font-size:13px;color:var(--ink-400);" onclick="closePin()">Cancel</button>
+        <button class="pin-key" onclick="pinInput('0')">0</button>
+        <button class="pin-key del" onclick="pinDelete()">&#9003;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+renderNav('home');
+
+/* Reminders */
+function dismissReminder(id) {
+  const el = document.getElementById(id);
+  el.style.transition = 'opacity .2s, max-height .3s, margin .3s, padding .3s';
+  el.style.opacity = '0'; el.style.maxHeight = '0';
+  el.style.marginTop = '0'; el.style.overflow = 'hidden';
+  setTimeout(() => el.remove(), 320);
+}
+
+/* PIN / balance */
+let pinVal = '';
+function openPin() {
+  pinVal = '';
+  updatePinDots();
+  document.getElementById('pinOverlay').classList.add('active');
+}
+function closePin() {
+  document.getElementById('pinOverlay').classList.remove('active');
+  pinVal = '';
+  updatePinDots();
+}
+function pinInput(d) {
+  if (pinVal.length >= 6) return;
+  pinVal += d;
+  updatePinDots();
+  if (pinVal.length === 6) setTimeout(() => { closePin(); revealBalance(); }, 250);
+}
+function pinDelete() { pinVal = pinVal.slice(0,-1); updatePinDots(); }
+function updatePinDots() {
+  document.querySelectorAll('.pin-dot').forEach((d,i) => d.classList.toggle('filled', i < pinVal.length));
+}
+function revealBalance() {
+  document.getElementById('balanceDisplay').textContent = '\u20B924,560.00';
+  document.getElementById('balanceDisplay').className = 'hero-balance-shown';
+  document.getElementById('bankLabel').textContent = 'HDFC Bank \u00B7 AC \u00B7\u00B7\u00B78821';
+  document.getElementById('eyeBtn').onclick = hideBalance;
+  document.getElementById('eyeBtn').innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>`;
+}
+function hideBalance() {
+  document.getElementById('balanceDisplay').innerHTML = '&#9679;&#9679;&#9679;&#9679;&#9679;';
+  document.getElementById('balanceDisplay').className = 'hero-balance-hidden';
+  document.getElementById('bankLabel').textContent = 'HDFC Bank \u00B7 AC \u00B7\u00B7\u00B78821 \u00B7 Tap to check balance';
+  document.getElementById('eyeBtn').onclick = openPin;
+  document.getElementById('eyeBtn').innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`;
+}
+
+/* Send sheet */
+function openSendSheet() {
+  document.getElementById('sendOverlay').style.display = 'block';
+  document.getElementById('sendPanel').style.display = 'block';
+  setTimeout(() => document.getElementById('sendSearch').focus(), 100);
+}
+function closeSendSheet() {
+  document.getElementById('sendOverlay').style.display = 'none';
+  document.getElementById('sendPanel').style.display = 'none';
+}
+function filterSendList(v) {
+  const q = v.toLowerCase();
+  document.querySelectorAll('#sendContactList .contact').forEach(el => {
+    el.style.display = el.dataset.name.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+function selectPayee(name, upi) {
+  closeSendSheet();
+  sessionStorage.setItem('payee', name);
+  sessionStorage.setItem('upi', upi);
+  window.location = 'pay.html';
+}
+function quickPay(name, upi) { selectPayee(name, upi); }
+function goScan() { closeSendSheet(); window.location = 'scan.html'; }
+
+/* Receive sheet */
+function openReceiveSheet() {
+  document.getElementById('receiveOverlay').style.display = 'block';
+  document.getElementById('receivePanel').style.display = 'block';
+}
+function closeReceiveSheet() {
+  document.getElementById('receiveOverlay').style.display = 'none';
+  document.getElementById('receivePanel').style.display = 'none';
+}
+function doCopyUpi() {
+  navigator.clipboard.writeText('rahul.khatri@okhdfc').then(() => {
+    const btn = document.getElementById('upiCopyBtn');
+    btn.textContent = 'Copied!'; btn.style.color = 'var(--green)';
+    setTimeout(() => { btn.textContent = 'Copy'; btn.style.color = ''; }, 2000);
+  }).catch(() => {});
+}
+
+/* Txn detail sheet */
+let currentRef = '';
+function openTxnDetail(t) {
+  currentRef = t.ref;
+  const isSent = t.type === 'sent';
+  document.getElementById('td-amt').textContent = (isSent ? '\u2212' : '+') + '\u20B9' + t.amt;
+  document.getElementById('td-amt').style.color = isSent ? 'var(--ink-900)' : 'var(--green)';
+  document.getElementById('td-status').textContent = isSent ? 'Payment Successful' : 'Money Received';
+  document.getElementById('td-av').textContent = t.init;
+  document.getElementById('td-av').className = 'av av-44 ' + t.col;
+  document.getElementById('td-dir').textContent = isSent ? 'To' : 'From';
+  document.getElementById('td-name').textContent = t.name;
+  document.getElementById('td-upi').textContent = t.upi;
+  document.getElementById('td-date').textContent = t.date;
+  document.getElementById('td-cat').textContent = t.cat;
+  document.getElementById('td-ref').textContent = t.ref;
+  document.getElementById('txnOverlay').style.display = 'block';
+  document.getElementById('txnPanel').style.display = 'block';
+}
+function closeTxnDetail() {
+  document.getElementById('txnOverlay').style.display = 'none';
+  document.getElementById('txnPanel').style.display = 'none';
+}
+function copyTxnRef() {
+  navigator.clipboard.writeText(currentRef).then(() => {
+    const btn = document.getElementById('td-copy');
+    btn.textContent = 'Copied!'; btn.style.color = 'var(--green)';
+    setTimeout(() => { btn.textContent = 'Copy'; btn.style.color = ''; }, 2000);
+  }).catch(() => {});
+}
+</script>
+</body>
+</html>
