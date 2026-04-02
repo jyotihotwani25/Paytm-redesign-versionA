@@ -64,7 +64,7 @@ Version A solves these issues using:
 ---
 
 ## 🌐 Live Demo
-👉 [Add your GitHub Pages / Netlify link here]
+https://jyotihotwani25.github.io/Paytm-redesign-versionA/
 
 ---
 
